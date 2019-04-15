@@ -6,7 +6,11 @@ import edu.iis.mto.search.SequenceSearcher;
 
 public class SequenceSearcherDoubler implements SequenceSearcher {
 
-    public static int searchMethodCounter = 0;
+    private int searchMethodCounter = 0;
+
+    public SequenceSearcherDoubler() {
+        searchMethodCounter = 0;
+    }
 
     @Override public SearchResult search(int key, int[] seq) {
         Builder builder = SearchResult.builder();
@@ -20,4 +24,9 @@ public class SequenceSearcherDoubler implements SequenceSearcher {
         }
         return builder.build();
     }
+
+    public int getSearchMethodCounter() {
+        return searchMethodCounter;
+    }
+
 }
