@@ -6,6 +6,8 @@ public class SimilarityFinder {
 
     private SequenceSearcher searcher;
 
+    public SimilarityFinder() {}
+
     public SimilarityFinder(SequenceSearcher searcher) {
         this.searcher = searcher;
     }
