@@ -7,8 +7,9 @@ import static org.junit.Assert.*;
 
 public class SimilarityFinderTest {
 
+    SimilarityFinder similarityFinder = new SimilarityFinder(new SequenceSearcherDoubler());
+
     @Test public void calculateJackardSimilarityWhenSeqLengthEqualsZero() {
-        SimilarityFinder similarityFinder = new SimilarityFinder();
         int[] seq1 = {};
         int[] seq2 = {};
         double result = 1.0;
