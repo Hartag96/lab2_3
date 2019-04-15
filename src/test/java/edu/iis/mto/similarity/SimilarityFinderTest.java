@@ -17,4 +17,13 @@ public class SimilarityFinderTest {
 
         Assert.assertEquals(result, similarityFinder.calculateJackardSimilarity(seq1, seq2), delta);
     }
+
+    @Test public void calculateJackardSimilarityWhenSeqAreEquals() {
+        int[] seq1 = {1, 2, 3};
+        int[] seq2 = {1, 2, 3};
+        double result = 1.0;
+        double delta = 0.1;
+
+        Assert.assertEquals(result, similarityFinder.calculateJackardSimilarity(seq1, seq2), delta);
+    }
 }
