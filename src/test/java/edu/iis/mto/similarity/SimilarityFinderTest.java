@@ -1,5 +1,6 @@
 package edu.iis.mto.similarity;
 
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,18 +13,15 @@ public class SimilarityFinderTest {
     @Test public void calculateJackardSimilarityWhenSeqLengthEqualsZero() {
         int[] seq1 = {};
         int[] seq2 = {};
-        double result = 1.0;
-        double delta = 0.1;
 
-        Assert.assertEquals(result, similarityFinder.calculateJackardSimilarity(seq1, seq2), delta);
+        Assert.assertThat(similarityFinder.calculateJackardSimilarity(seq1, seq2), Matchers.equalTo(1.0));
+
     }
 
     @Test public void calculateJackardSimilarityWhenSeqAreEquals() {
         int[] seq1 = {1, 2, 3};
         int[] seq2 = {1, 2, 3};
-        double result = 1.0;
-        double delta = 0.1;
 
-        Assert.assertEquals(result, similarityFinder.calculateJackardSimilarity(seq1, seq2), delta);
+        Assert.assertThat(similarityFinder.calculateJackardSimilarity(seq1, seq2), Matchers.equalTo(1.0));
     }
 }
