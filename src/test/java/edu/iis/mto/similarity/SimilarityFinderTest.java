@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import javax.sound.midi.Sequence;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class SimilarityFinderTest {
@@ -71,5 +73,17 @@ public class SimilarityFinderTest {
 
         similarityFinder.calculateJackardSimilarity(seq1, seq2);
         Assert.assertThat(sequenceSearcherDoubler.getSeqParameter(), Matchers.equalTo(seq2));
+    }
+
+    @Test public void sequenceSearcherDoublerValidFoundKeysSequence() {
+        int[] seq1 = {1, 2, 3};
+        int[] seq2 = {1, 5, 3};
+        ArrayList<Boolean> validFoundKeys = new ArrayList<>();
+            validFoundKeys.add(true);
+            validFoundKeys.add(false);
+            validFoundKeys.add(true);
+
+        similarityFinder.calculateJackardSimilarity(seq1, seq2);
+        Assert.assertThat(sequenceSearcherDoubler.getFoundKeysSequence(), Matchers.equalTo(validFoundKeys));
     }
 }
