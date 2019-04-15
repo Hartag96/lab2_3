@@ -6,7 +6,8 @@ import edu.iis.mto.search.SequenceSearcher;
 
 public class SequenceSearcherDoubler implements SequenceSearcher {
 
-    private int searchMethodCounter = 0;
+    private int searchMethodCounter;
+    private int[] seqParameter;
 
     public SequenceSearcherDoubler() {
         searchMethodCounter = 0;
@@ -14,8 +15,8 @@ public class SequenceSearcherDoubler implements SequenceSearcher {
 
     @Override public SearchResult search(int key, int[] seq) {
         Builder builder = SearchResult.builder();
+        setSeqParameter(seq);
         searchMethodCounter++;
-        int position = 0;
         for(int i = 0; i < seq.length; i++) {
             if(key == seq[i]) {
                 builder.withFound(true);
@@ -29,4 +30,11 @@ public class SequenceSearcherDoubler implements SequenceSearcher {
         return searchMethodCounter;
     }
 
+    public int[] getSeqParameter() {
+        return seqParameter;
+    }
+
+    public void setSeqParameter(int[] seqParameter) {
+        this.seqParameter = seqParameter;
+    }
 }
